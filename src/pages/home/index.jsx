@@ -107,7 +107,7 @@ export default function Home() {
 											viewMore: "https://github.com/Bruno2202/sandbox",
 										}}
 									/>
-									<Projects
+									{/* <Projects
 										img={require('../../assets/img/projects/MuchkinId.png')}
 										name={"Muchkin ID"}
 										description={"Auxiliar de jogo"}
@@ -116,7 +116,7 @@ export default function Home() {
 											imgPreview: require('../../assets/img/projects/MuchkinId.png'),
 											viewMore: "https://munchkinid.firebaseapp.com/",
 										}}
-									/>
+									/> */}
 									<Projects
 										img={require('../../assets/img/projects/Portfolio.png')}
 										name={"Portfólio"}
