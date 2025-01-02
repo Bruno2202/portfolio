@@ -107,16 +107,6 @@ export default function Home() {
 											viewMore: "https://github.com/Bruno2202/sandbox",
 										}}
 									/>
-									{/* <Projects
-										img={require('../../assets/img/projects/MuchkinId.png')}
-										name={"Muchkin ID"}
-										description={"Auxiliar de jogo"}
-										detailDescription={{
-											text: "Auxiliar para o jogo de cartas Munchkin. Nele, o usuário pode iniciar uma partida com seus amigos e facilitar o contegem de pontos no jogo.",
-											imgPreview: require('../../assets/img/projects/MuchkinId.png'),
-											viewMore: "https://munchkinid.firebaseapp.com/",
-										}}
-									/> */}
 									<Projects
 										img={require('../../assets/img/projects/Portfolio.png')}
 										name={"Portfólio"}
