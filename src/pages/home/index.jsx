@@ -69,7 +69,7 @@ export default function Home() {
 											<>
 												Meu nome é Bruno Terribile, tenho 19 anos e sou desenvolvedor Full Stack.
 												<br /><br />Apaixonado por tecnologia e desenvolvimento, utilizo meus conhecimentos na área para criar aplicações web com diversos propósitos.
-												<br /><br />Tenho experiência trabalhando com HTML, CSS, JavaScript, Typescript, MySQL, PostgreSQL, React, React Native, NodeJS,Git e Firebase.
+												<br /><br />Tenho experiência trabalhando com <strong>HTML, CSS, JavaScript, Typescript, MySQL, PostgreSQL, React, React Native, NodeJS,Git</strong> e <strong>Firebase</strong>.
 												<br /><br />Estou sempre ansioso em aprender mais como desenvolver projetos incríveis e aprimorar meus conhecimentos na área.
 											</>
 										}
@@ -102,7 +102,7 @@ export default function Home() {
 										name={"Sandbox"}
 										description={"Minha rede social"}
 										detailDescription={{
-											text: "Rede social desenvolvida para dispositivos mobile. Utiliza autenticação OAuth, email e senha. Nela, os usuários conseguem compartilhar textos e imagens.",
+											text: "Rede social desenvolvida para dispositivos móveis, com suporte a autenticação via OAuth, e-mail e senha. Os usuários podem compartilhar textos e imagens na plataforma.",
 											imgPreview: require('../../assets/img/projects/Sandbox.png'),
 											viewMore: "https://github.com/Bruno2202/sandbox",
 										}}
@@ -112,7 +112,7 @@ export default function Home() {
 										name={"Portfólio"}
 										description={"Meu portfólio web"}
 										detailDescription={{
-											text: "Meu portfólio web. Nele, você pode saber um pouco mais sobre mim e ver os projetos que já desenvolvi.",
+											text: "Meu portfólio web: nele, você pode conhecer um pouco mais sobre mim e explorar os projetos que já desenvolvi.",
 											imgPreview: require('../../assets/img/projects/Portfolio.png'),
 											viewMore: "https://github.com/Bruno2202/portfolio",
 										}}
@@ -122,7 +122,7 @@ export default function Home() {
 										name={"Notes"}
 										description={"Aplicativo de bloco de notas"}
 										detailDescription={{
-											text: "App mobile o qual permite que o usuário possa salvar suas notações. Desenvolvido para estudos do React Native.",
+											text: "Aplicativo móvel que permite ao usuário salvar suas anotações, desenvolvido para fins de estudo do React Native.",
 											imgPreview: require('../../assets/img/projects/Notes.png'),
 											viewMore: "https://github.com/Bruno2202/notes",
 										}}
