@@ -69,7 +69,7 @@ export default function Home() {
 											<>
 												Meu nome é Bruno Terribile, tenho 19 anos e sou desenvolvedor Full Stack.
 												<br /><br />Apaixonado por tecnologia e desenvolvimento, utilizo meus conhecimentos na área para criar aplicações web com diversos propósitos.
-												<br /><br />Tenho experiência trabalhando com <strong>HTML, CSS, JavaScript, Typescript, MySQL, PostgreSQL, React, React Native, NodeJS,Git</strong> e <strong>Firebase</strong>.
+												<br /><br />Tenho experiência trabalhando com <strong>HTML, CSS, JavaScript, Typescript, MySQL, PostgreSQL, React, React Native, NodeJS, Git</strong> e <strong>Firebase</strong>.
 												<br /><br />Estou sempre ansioso em aprender mais como desenvolver projetos incríveis e aprimorar meus conhecimentos na área.
 											</>
 										}
@@ -125,6 +125,16 @@ export default function Home() {
 											text: "Aplicativo móvel que permite ao usuário salvar suas anotações, desenvolvido para fins de estudo do React Native.",
 											imgPreview: require('../../assets/img/projects/Notes.png'),
 											viewMore: "https://github.com/Bruno2202/notes",
+										}}
+									/>
+									<Projects
+										img={require('../../assets/img/projects/Notes-api.png')}
+										name={"Notes API"}
+										description={"API do Notes"}
+										detailDescription={{
+											text: "Esta é a API do Notes, uma aplicação para gerenciar sua anotações. Ela fornece métodos de criação, visualização, atualização e exclusão de anotações, entre outras funcionalidades.",
+											imgPreview: require('../../assets/img/projects/Notes-api.png'),
+											viewMore: "https://github.com/Bruno2202/notes-api",
 										}}
 									/>
 								</div>

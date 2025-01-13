@@ -4,6 +4,10 @@ import { AiFillGithub, AiFillLinkedin, AiFillInstagram, AiFillMail } from "react
 import styles from './style.module.css';
 
 export default function Footer() {
+	function getYear() {
+		return new Date().getFullYear()
+	}
+
 	return (
 		<div className={styles.footer}>
 			<div className={styles.icons}>
@@ -36,7 +40,7 @@ export default function Footer() {
 			</div>
 
 			<div className={styles.text}>
-				<p>© Bruno C. Terribile 2025</p>
+				<p>© Bruno C. Terribile {getYear()}</p>
 			</div>
 		</div >
 	);
