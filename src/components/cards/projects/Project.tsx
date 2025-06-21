@@ -1,5 +1,4 @@
 import { motion } from 'motion/react';
-import Detail from './Detail';
 import type { Project } from '../../../types/Project';
 import { useContext, useState } from 'react';
 import { ModalContext } from '../../../contexts/ModalContext';
