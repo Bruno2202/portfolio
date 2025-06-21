@@ -34,7 +34,7 @@ export default function Saluation() {
                 transition={{ delay: 1.2, ease: "easeOut", duration: 1 }}
             >
                 <a
-                    href="https://drive.google.com/uc?export=download&id=1vR3BeaaDJ_LZanHQGbaFG7nxV-xEcnte"
+                    href="https://drive.google.com/uc?export=download&id=10yprmUV774UuJo7sMxZBseeK53PqLkpU"
                     className="flex select-none md:select-auto flex-row gap-2 items-center justify-center font-bold bg-gradient-to-r from-lightPurple to-purple transition-all duration-200 ease-in-out px-5 py-3 rounded-2xl text-base border-none cursor-pointer hover:scale-105 active:scale-100"
                 >
                     <DownloadIcon />
