@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@font-face {
+	font-family: 'SF-Pro';
+	src: url('/assets/fonts/SF-Pro.ttf') format('truetype');
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'SF-Pro-Bold';
+	src: url('/assets/fonts/SF-Pro-Bold.otf') format('truetype');
+	font-style: normal;
+}
+
+body {
+	font-family: 'SF-Pro', sans-serif;
+	color: var(--color-white);
+}
+
+@theme {
+	--color-darkGrey: #040505;
+	--color-black: #0F1011;
+	--color-lightPurple: #8185DB;
+	--color-purple: #2621A6;
+	--color-white: #F5F3E2;
+	--color-grey: #707068;
+
+	--radius-8: 8px;
+
+	--font-sfpro: SF-Pro, sans-serif;
+	--font-sfpro-bold: SF-Pro-Bold, sans-serif;
+}
