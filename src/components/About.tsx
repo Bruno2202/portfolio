@@ -13,7 +13,7 @@ export default function About() {
             transition={{ ease: "easeInOut", duration: 0.6 }}
             viewport={{ once: true }}
         >
-            <p className="text-center text-4xl font-sfpro-bold font-bold mb-8 w-full">
+            <p className="text-center text-4xl font-sfpro-bold mb-8 w-full">
                 Sobre mim
             </p>
             <div className="flex flex-col-reverse items-center md:flex-row w-full gap-8">

@@ -52,8 +52,8 @@ export default function Detail({ project }: DetailProps) {
                         </span>
                         <div className='flex flex-col items-center px-8 pb-8 h-full'>
                             <div className='flex flex-col flex-1 text-left'>
-                                <p className="font-sfpro-bold font-bold text-4xl">{project?.name}</p>
-                                <p className="text-sm font-sfpro-bold font-bold text-lightPurple mb-8">{project?.description}</p>
+                                <p className="font-sfpro-bold text-4xl">{project?.name}</p>
+                                <p className="text-sm font-sfpro-bold text-lightPurple mb-8">{project?.description}</p>
                                 <p className='mb-8 overflow-auto'>{project?.text}</p>
                                 <div className='flex items-center justify-center'>
                                     <img

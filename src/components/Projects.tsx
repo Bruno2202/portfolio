@@ -12,7 +12,7 @@ export default function Projects() {
             transition={{ ease: "easeInOut", duration: 0.5 }}
             viewport={{ once: true }}
         >
-            <p className="text-center text-4xl font-sfpro-bold font-bold mb-8">
+            <p className="text-center text-4xl font-sfpro-bold mb-8">
                 Meus projetos
             </p>
             <div

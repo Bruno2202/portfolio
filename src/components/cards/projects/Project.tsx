@@ -33,7 +33,7 @@ export default function Project({ project }: ProjectProps) {
 			whileTap={{ scale: 0.9 }}
 		>
 			<img src={project.img} alt={project.name} className="mx-auto mb-4 md:max-w-68 rounded-2xl" draggable={false} />
-			<p className="text-2xl font-sfpro-bold font-bold mb-2">{project.name}</p>
+			<p className="text-2xl font-sfpro-bold mb-2">{project.name}</p>
 			<p className="text-gray-600">{project.description}</p>
 		</motion.div>
 	);

@@ -13,7 +13,7 @@ export default function Saluation() {
             <div className="flex flex-row items-center justify-center text-center mb-4 md:mb-2 select-none md:select-auto">
                 <p className="text-5xl">
                     Olá, meu nome é{' '}
-                    <span className="bg-gradient-to-r from-lightPurple to-purple bg-clip-text text-transparent font-sfpro-bold font-bold text-6xl md:text-5xl">
+                    <span className="bg-gradient-to-r from-lightPurple to-purple bg-clip-text text-transparent font-sfpro-bold text-6xl md:text-5xl">
                         Bruno
                     </span>
                 </p>

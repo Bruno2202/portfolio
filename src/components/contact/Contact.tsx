@@ -12,7 +12,7 @@ export default function Contact() {
             viewport={{ once: true }}
         >
             <p className="text-center font-thin mb-3 text-lg w-full">Quer criar algo?</p>
-            <p className="text-center text-5xl w-full font-sfpro-bold font-bold">Vamos desenvolver juntos!</p>
+            <p className="text-center text-5xl w-full font-sfpro-bold">Vamos desenvolver juntos!</p>
             <ContactForm />
         </motion.div>
     );
