@@ -40,5 +40,13 @@ export const projects: Project[] = [
         img: "/assets/img/projects/QuickChat.png",
         text: "QuickChat é uma plataforma de chat temporário que permite que dois usuários se conectem a uma sala e conversem em tempo real de forma simples e rápida.",
         github: "https://github.com/Bruno2202/quickchat",
+    },
+    {
+        id: 6,
+        name: "README.ai",
+        description: "Gerador de README.md com IA",
+        img: "/assets/img/projects/Readme-ai.png",
+        text: "README.ai é uma CLI que gera README.md automaticamente com IA, analisando seu código com ajuda do Google Gemini. Feito com TypeScript, Node.js, Enquirer e Google Gemini API.",
+        github: "https://github.com/Bruno2202/readme-ai",
     }
 ];
