@@ -43,6 +43,14 @@ export const projects: Project[] = [
     },
     {
         id: 6,
+        name: "QuickChat API",
+        description: "API do QuickChat",
+        img: "/assets/img/projects/QuickChatApi.png",
+        text: "Este projeto é o backend do QuickChat, projetado para fornecer funcionalidades de comunicação em tempo real e gerenciamento de conversas. Ele permite a troca de mensagens, criação de salas de chat e autenticação de usuários.",
+        github: "https://github.com/Bruno2202/quickchat-api",
+    },
+    {
+        id: 7,
         name: "README.ai",
         description: "Gerador de README.md com IA",
         img: "/assets/img/projects/Readme-ai.png",
