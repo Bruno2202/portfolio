@@ -1,40 +1,28 @@
-import { AnimatePresence } from "framer-motion";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import Saluation from "../components/Saluation";
 import About from "../components/About";
 import Projects from "../components/Projects";
-import Contact from "../components/contact/Contact";
-import Detail from "../components/cards/projects/Detail";
-import { motion } from "framer-motion";
-import { useContext } from "react";
-import { ProjectContext } from "../contexts/ProjectContext";
+import { AnimatedBackground } from "../components/AnimatedBackground";
+import { useTheme } from "../contexts/ThemeContext";
+import { Hero } from "../components/Hero";
+import { Footer } from "../components/Footer";
+import Header from "../components/Header";
+import { Contact } from "../components/Contact";
 
 export default function Home() {
-    const { project } = useContext(ProjectContext)!
+    const { theme } = useTheme();
 
     return (
-        <div className={`
-            w-full flex justify-center bg-contain bg-no-repeat bg-darkGrey
-            bg-[url(/assets/img/background/back_mobile.png)] md:bg-[url(/assets/img/background/back.png)] 
-        `}>
-            <AnimatePresence>
-                <motion.div key="header">
-                    <Header />
-                </motion.div>
+        <div className="bg-white dark:bg-black transition-colors relative">
+            <AnimatedBackground isDark={theme === 'dark'} />
 
-                <motion.div key="content">
-                    <div className="w-full px-4 md:px-12">
-                        <Saluation />
-                        <About />
-                        <Projects />
-                        <Contact />
-                        <Footer />
-                    </div>
-                </motion.div>
-            </AnimatePresence>
-
-            <Detail project={project} />
+            <div className="relative z-10">
+                <Header/>
+                <Hero />
+                <About />
+                <Projects />
+                <Contact />
+                <Footer />
+            </div>
         </div>
+
     );
 }

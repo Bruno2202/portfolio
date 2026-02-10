@@ -1,51 +1,76 @@
-import { AnimatePresence, motion } from 'framer-motion';
-import { useContext } from 'react';
-import { HeaderContext } from '../contexts/HeaderContext';
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 
-export default function Header() {
-    const { isOpenHeader } = useContext(HeaderContext)!;
 
-    function scrollToElement(elementId: string, offset: number = 0) {
-        const element = document.getElementById(elementId);
-        if (element) {
-            const elementPosition = element.getBoundingClientRect().top + window.scrollY + offset;
+interface NavigationProps {
+    activeSection: string;
+}
 
-            window.scrollTo({
-                top: elementPosition,
-                behavior: 'smooth',
-            });
-        }
-    }
+export default function Header({ activeSection }: NavigationProps) {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const navItems = [
-        { label: 'INÍCIO', id: 'saluation', offset: 0 },
+        { label: 'INÍCIO', id: 'home', offset: 0 },
         { label: 'SOBRE MIM', id: 'about', offset: -100 },
         { label: 'PROJETOS', id: 'projects', offset: -100 },
         { label: 'CONTATO', id: 'contact', offset: -100 },
     ];
 
+
+    const scrollToSection = (id: string) => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+            setIsMenuOpen(false);
+        }
+    };
+
     return (
-        <AnimatePresence>
-            {isOpenHeader && (
-                <motion.nav
-                    id="header"
-                    className="fixed z-[10] bg-[#f5f3e221] flex flex-row items-center justify-center w-screen gap-[60px] backdrop-blur-md max-[600px]:gap-[1px] max-[600px]:text-[0.8rem]"
-                    initial={{ y: -100, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: -100, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                >
-                    {navItems.map((item) => (
-                        <p
-                            key={item.id}
-                            className="p-4 h-full cursor-pointer transition-all duration-200 ease-out hover:bg-purple select-none"
-                            onClick={() => scrollToElement(item.id, item.offset)}
+        <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-black/40 backdrop-blur-md border-b border-gray-200 dark:border-gray-900 transition-colors">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="flex justify-between items-center h-16">
+                    <div className="hidden md:flex items-center space-x-12 mx-auto">
+                        {navItems.map((item) => (
+                            <button
+                                key={item.id}
+                                onClick={() => scrollToSection(item.id)}
+                                className={`text-sm transition-colors ${activeSection === item.id
+                                    ? 'text-gray-900 dark:text-white'
+                                    : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
+                                    }`}
+                            >
+                                {item.label}
+                            </button>
+                        ))}
+                    </div>
+
+                    <div className="md:hidden flex items-center gap-2 ml-auto">
+                        <button
+                            onClick={() => setIsMenuOpen(!isMenuOpen)}
+                            className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-900 dark:text-white transition-colors cursor-pointer"
                         >
-                            {item.label}
-                        </p>
-                    ))}
-                </motion.nav>
-            )}
-        </AnimatePresence>
+                            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                        </button>
+                    </div>
+                </div>
+
+                {isMenuOpen && (
+                    <div className="md:hidden py-4 space-y-2">
+                        {navItems.map((item) => (
+                            <button
+                                key={item.id}
+                                onClick={() => scrollToSection(item.id)}
+                                className={`block w-full text-left px-4 py-2 rounded-lg transition-colors text-sm ${activeSection === item.id
+                                    ? 'bg-indigo-600 text-white'
+                                    : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white'
+                                    }`}
+                            >
+                                {item.label}
+                            </button>
+                        ))}
+                    </div>
+                )}
+            </div>
+        </nav>
     );
 }
