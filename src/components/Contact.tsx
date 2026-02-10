@@ -20,7 +20,7 @@ export function Contact() {
 
         try {
             setIsSending(true);
-            const sentEmail: EmailModel = await EmailService.sendEmail(formData);
+            await EmailService.sendEmail(formData);
             setIsSubmitted(true);
 
         } catch (err: any) {

@@ -2,11 +2,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
 
-interface NavigationProps {
-    activeSection: string;
-}
-
-export default function Header({ activeSection }: NavigationProps) {
+export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const navItems = [
@@ -34,10 +30,7 @@ export default function Header({ activeSection }: NavigationProps) {
                             <button
                                 key={item.id}
                                 onClick={() => scrollToSection(item.id)}
-                                className={`text-sm transition-colors ${activeSection === item.id
-                                    ? 'text-gray-900 dark:text-white'
-                                    : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
-                                    }`}
+                                className="text-sm transition-colors text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
                             >
                                 {item.label}
                             </button>
@@ -60,10 +53,7 @@ export default function Header({ activeSection }: NavigationProps) {
                             <button
                                 key={item.id}
                                 onClick={() => scrollToSection(item.id)}
-                                className={`block w-full text-left px-4 py-2 rounded-lg transition-colors text-sm ${activeSection === item.id
-                                    ? 'bg-indigo-600 text-white'
-                                    : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white'
-                                    }`}
+                                className="block w-full text-left px-4 py-2 rounded-lg transition-colors text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white"
                             >
                                 {item.label}
                             </button>
