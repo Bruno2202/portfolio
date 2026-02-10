@@ -2,7 +2,6 @@ import { motion } from 'motion/react';
 import { useState } from 'react';
 import { Mail, MapPin, Linkedin, Github, Send, CheckCircle2, Sparkles, LoaderCircle } from 'lucide-react';
 import { EmailService } from '../core/services/EmailService';
-import type { EmailModel } from '../core/models/EmailModel';
 import toast from 'react-hot-toast';
 
 export function Contact() {
