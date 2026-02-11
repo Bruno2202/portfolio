@@ -1,4 +1,4 @@
-import { Download, Mail, Github, Linkedin, ChevronDown } from 'lucide-react';
+import { Download, Github, Linkedin, ChevronDown } from 'lucide-react';
 import { motion } from 'motion/react';
 
 export function Hero() {
@@ -19,47 +19,44 @@ export function Hero() {
                 <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-600/10 dark:bg-purple-600/10 rounded-full blur-3xl animate-pulse delay-700"></div>
             </div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 pt-8">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                 >
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
-                        className="mb-6"
-                    >
-                        <span className="inline-block px-4 py-2 bg-indigo-100 dark:bg-indigo-600/20 border border-indigo-300 dark:border-indigo-500/30 text-indigo-700 dark:text-indigo-300 rounded-full text-sm font-medium backdrop-blur-sm">
-                            👋 Disponível para oportunidades
-                        </span>
-                    </motion.div>
+                    <div className="flex flex-col items-center lg:items-start text-center lg:text-left overflow-hidden">
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, ease: "easeOut" }}
+                        >
+                            <span className="text-indigo-500 dark:text-indigo-400 font-mono text-sm md:text-center tracking-[0.2em] uppercase mb-4 block">
+                                Olá, meu nome é
+                            </span>
 
-                    <motion.h1
-                        className="text-5xl sm:text-6xl lg:text-7xl mb-6"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.3 }}
-                    >
-                        <h2 className="text-gray-900 dark:text-white block mb-2 tracking-tight text-6xl">Olá, meu nome é</h2>
-                        <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent font-bold tracking-tight">
-                            Bruno Terribile
-                        </span>
-                    </motion.h1>
+                            <h1 className="text-5xl sm:text-6xl lg:text-8xl font-black tracking-tight mb-6 leading-[1.1]">
+                                <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent">
+                                    Bruno Terribile
+                                </span>
+                            </h1>
+                        </motion.div>
 
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.8, delay: 0.5 }}
-                    >
-                        <p className="text-xl sm:text-2xl lg:text-3xl text-gray-700 dark:text-gray-300 mb-4">
-                            Full Stack Developer
-                        </p>
-                        <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto">
-                            Do rascunho ao deploy: Construindo ideias em experiências digitais incríveis
-                        </p>
-                    </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.4 }}
+                            className="flex flex-col items-center lg:items-center"
+                        >
+                            <h2 className="text-2xl sm:text-3xl lg:text-5xl text-gray-700 dark:text-gray-200 font-bold mb-6 tracking-tight">
+                                Full Stack Developer
+                            </h2>
+
+                            <p className="text-center sm:text-lg lg:text-xl text-gray-600 dark:text-gray-400 max-w-[600px] leading-relaxed mb-10">
+                                Do rascunho ao deploy: construindo ideias em <span className="text-gray-900 dark:text-white font-medium">experiências digitais</span> incríveis.
+                            </p>
+                        </motion.div>
+                    </div>
 
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -85,7 +82,7 @@ export function Hero() {
                         </button>
 
                         <a
-                            href="J/curriculo.pdf"
+                            href="https://drive.google.com/uc?export=download&id=1vO468p7fPoypfcMD1Xbw5QnMPLJR5Pv3"
                             download
                             className="inline-flex items-center gap-2 px-8 py-3 bg-transparent border border-indigo-500/30 text-indigo-400 rounded-xl font-bold uppercase tracking-widest text-[11px] hover:bg-indigo-500/10 hover:border-indigo-500 transition-all cursor-pointer"
                         >
@@ -103,7 +100,6 @@ export function Hero() {
                         {[
                             { href: "https://github.com/Bruno2202", icon: <Github size={20} />, label: "GitHub" },
                             { href: "https://linkedin.com/in/bruno-terribile", icon: <Linkedin size={20} />, label: "LinkedIn" },
-                            { href: "mailto:brunoterribile2005@gmail.com", icon: <Mail size={20} />, label: "Email" }
                         ].map((social, index) => (
                             <a
                                 key={index}
