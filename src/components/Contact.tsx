@@ -53,39 +53,43 @@ export function Contact() {
     ];
 
     return (
-        <section id="contact" className="relative min-h-screen flex items-center py-20 bg-black overflow-hidden">
+        <section id="contact" className="relative min-h-screen flex items-center justify-center py-20 bg-black overflow-hidden">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-indigo-600/10 blur-[120px] rounded-full pointer-events-none" />
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+            {/* Container Principal */}
+            <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <motion.div
+                    className="w-full flex flex-col items-center"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
                 >
-                    <div className="text-center mb-16">
+                    <div className="text-center mb-16 w-full">
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5 }}
+                            className="flex flex-col items-center"
                         >
                             <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 rounded-full text-xs font-bold uppercase tracking-widest mb-6">
                                 <Sparkles size={14} />
                                 Disponível para novos projetos
                             </span>
-                            <h2 className="text-5xl lg:text-6xl font-black text-white mb-6 tracking-tight">
+                            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-6 tracking-tight">
                                 Vamos <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-500">Conversar?</span>
                             </h2>
-                            <p className="text-gray-400 mt-4 max-w-2xl mx-auto text-lg leading-relaxed">
+                            <p className="text-gray-400 max-w-2xl text-base sm:text-lg leading-relaxed">
                                 Tem uma ideia incrível ou precisa de um desenvolvedor para sua equipe? Mande uma mensagem e vamos construir algo incrível juntos.
                             </p>
                         </motion.div>
                     </div>
 
-                    <div className="grid lg:grid-cols-12 gap-12 items-start">
-                        <div className="lg:col-span-5 space-y-8">
-                            <div className="space-y-4">
+                    <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-start w-full">
+
+                        <div className="lg:col-span-5 space-y-6 w-full flex flex-col items-center lg:items-stretch">
+                            <div className="space-y-4 w-full max-w-md lg:max-w-none">
                                 {contactInfo.map((info, index) => (
                                     <motion.div
                                         key={info.label}
@@ -93,25 +97,22 @@ export function Contact() {
                                         whileInView={{ opacity: 1, x: 0 }}
                                         viewport={{ once: true }}
                                         transition={{ duration: 0.4, delay: index * 0.1 }}
-                                        className="group flex items-center gap-4 p-5 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/5 hover:border-indigo-500/30 transition-all duration-300"
+                                        className="group flex items-center gap-4 p-5 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/5 hover:border-indigo-500/30 transition-all duration-300 w-full"
                                     >
-                                        <div className="bg-indigo-500/10 p-3 rounded-xl border border-indigo-500/20 group-hover:bg-indigo-500/20 transition-colors">
+                                        <div className="bg-indigo-500/10 p-3 rounded-xl border border-indigo-500/20 group-hover:bg-indigo-500/20 transition-colors shrink-0">
                                             <info.icon className="text-indigo-400" size={22} />
                                         </div>
-                                        <div>
+                                        <div className="text-left overflow-hidden">
                                             <p className="text-[10px] uppercase tracking-widest text-indigo-400/60 font-bold mb-0.5">{info.label}</p>
-                                            {info.link ? (
-                                                <a
-                                                    href={info.link}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="text-white hover:text-indigo-400 transition-colors font-medium text-lg"
-                                                >
-                                                    {info.value}
-                                                </a>
-                                            ) : (
-                                                <p className="text-white font-medium text-lg">{info.value}</p>
-                                            )}
+                                            <div className="truncate text-white font-medium text-base sm:text-lg">
+                                                {info.link ? (
+                                                    <a href={info.link} target="_blank" rel="noopener noreferrer" className="hover:text-indigo-400 transition-colors">
+                                                        {info.value}
+                                                    </a>
+                                                ) : (
+                                                    <span>{info.value}</span>
+                                                )}
+                                            </div>
                                         </div>
                                     </motion.div>
                                 ))}
