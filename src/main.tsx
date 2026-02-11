@@ -5,7 +5,6 @@ import Home from "./pages/Home";
 import ModalProvider from "./contexts/ModalContext";
 import ProjectProvider from "./contexts/ProjectContext";
 import HeaderProvider from "./contexts/HeaderContext";
-import { Toaster } from "react-hot-toast";
 import { ThemeProvider } from "./contexts/ThemeContext";
 
 const root = document.getElementById("root");
@@ -19,24 +18,6 @@ ReactDOM.createRoot(root!).render(
 						<Routes>
 							<Route path="/" element={<Home />} />
 						</Routes>
-						<Toaster
-							toastOptions={{
-								className: 'font-medium',
-								duration: 2000,
-								success: {
-									iconTheme: {
-										primary: '#4ade80',
-										secondary: '#F5F3E2',
-									},
-								},
-								error: {
-									iconTheme: {
-										primary: '#f87171',
-										secondary: '#F5F3E2',
-									},
-								},
-							}}
-						/>
 					</BrowserRouter>
 				</ProjectProvider>
 			</ModalProvider>

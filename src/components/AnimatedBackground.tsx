@@ -1,123 +1,123 @@
 import { useEffect, useRef } from 'react';
 
 interface AnimatedBackgroundProps {
-  isDark: boolean;
-  colorLight?: string;
-  colorDark?: string;
-  speed?: number;
+	isDark: boolean;
+	colorLight?: string;
+	colorDark?: string;
+	speed?: number;
 }
 
-export function AnimatedBackground({ 
-  isDark, 
-  colorLight = 'rgba(79, 70, 229, 0.3)', 
-  colorDark = 'rgba(79, 70, 229, 0.5)',  
-  speed = 30 
+export function AnimatedBackground({
+	isDark,
+	colorLight = 'rgba(79, 70, 229, 0.3)',
+	colorDark = 'rgba(79, 70, 229, 0.5)',
+	speed = 30
 }: AnimatedBackgroundProps) {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const logicalSize = useRef({ width: 0, height: 0 });
+	const canvasRef = useRef<HTMLCanvasElement>(null);
+	const containerRef = useRef<HTMLDivElement>(null);
+	const logicalSize = useRef({ width: 0, height: 0 });
 
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    const container = containerRef.current;
-    if (!canvas || !container) return;
+	useEffect(() => {
+		const canvas = canvasRef.current;
+		const container = containerRef.current;
+		if (!canvas || !container) return;
 
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
+		const ctx = canvas.getContext('2d');
+		if (!ctx) return;
 
-    let animationFrameId: number;
-    let drops: number[] = [];
-    
-    const characters = '01xyzw<>[]();=+-*&|abcdefhijklmnopqrst';
-    const fontSize = 14;
+		let animationFrameId: number;
+		let drops: number[] = [];
 
-    const init = () => {
-      const { clientWidth, clientHeight } = container;
-      const dpr = window.devicePixelRatio || 1;
+		const characters = '01xyzw<>[]();=+-*&|abcdefhijklmnopqrst';
+		const fontSize = 14;
 
-      logicalSize.current = { width: clientWidth, height: clientHeight };
+		const init = () => {
+			const { clientWidth, clientHeight } = container;
+			const dpr = window.devicePixelRatio || 1;
 
-      canvas.width = clientWidth * dpr;
-      canvas.height = clientHeight * dpr;
+			logicalSize.current = { width: clientWidth, height: clientHeight };
 
-      ctx.scale(dpr, dpr);
+			canvas.width = clientWidth * dpr;
+			canvas.height = clientHeight * dpr;
 
-      canvas.style.width = `${clientWidth}px`;
-      canvas.style.height = `${clientHeight}px`;
+			ctx.scale(dpr, dpr);
 
-      const columns = Math.ceil(clientWidth / fontSize);
-      
-      if (drops.length === 0 || drops.length !== columns) {
-        const newDrops = [];
-        for (let i = 0; i < columns; i++) {
-          newDrops[i] = drops[i] !== undefined ? drops[i] : Math.random() * -100;
-        }
-        drops = newDrops;
-      }
-      
-      ctx.font = `${fontSize}px monospace`;
-      ctx.textAlign = 'center';
-      
-      ctx.fillStyle = isDark ? '#000' : '#FFF';
-      ctx.fillRect(0, 0, clientWidth, clientHeight);
-    };
+			canvas.style.width = `${clientWidth}px`;
+			canvas.style.height = `${clientHeight}px`;
 
-    let lastTime = 0;
-    const fpsInterval = 1000 / speed;
+			const columns = Math.ceil(clientWidth / fontSize);
 
-    const draw = (currentTime: number) => {
-      animationFrameId = requestAnimationFrame(draw);
+			if (drops.length === 0 || drops.length !== columns) {
+				const newDrops = [];
+				for (let i = 0; i < columns; i++) {
+					newDrops[i] = drops[i] !== undefined ? drops[i] : Math.random() * -100;
+				}
+				drops = newDrops;
+			}
 
-      const elapsed = currentTime - lastTime;
-      if (elapsed < fpsInterval) return;
+			ctx.font = `${fontSize}px monospace`;
+			ctx.textAlign = 'center';
 
-      lastTime = currentTime - (elapsed % fpsInterval);
+			ctx.fillStyle = isDark ? '#000' : '#FFF';
+			ctx.fillRect(0, 0, clientWidth, clientHeight);
+		};
 
-      ctx.fillStyle = isDark 
-        ? 'rgba(0, 0, 0, 0.15)'
-        : 'rgba(255, 255, 255, 0.18)'; 
+		let lastTime = 0;
+		const fpsInterval = 1000 / speed;
 
-      ctx.fillRect(0, 0, logicalSize.current.width, logicalSize.current.height);
+		const draw = (currentTime: number) => {
+			animationFrameId = requestAnimationFrame(draw);
 
-      ctx.fillStyle = isDark ? colorDark : colorLight;
-      ctx.font = `${fontSize}px monospace`; 
-      
-      for (let i = 0; i < drops.length; i++) {
-        const text = characters[Math.floor(Math.random() * characters.length)];
-        const x = i * fontSize;
-        const y = drops[i] * fontSize;
+			const elapsed = currentTime - lastTime;
+			if (elapsed < fpsInterval) return;
 
-        ctx.fillText(text, x, y);
+			lastTime = currentTime - (elapsed % fpsInterval);
 
-        if (y > logicalSize.current.height && Math.random() > 0.975) {
-          drops[i] = 0;
-        }
+			ctx.fillStyle = isDark
+				? 'rgba(0, 0, 0, 0.15)'
+				: 'rgba(255, 255, 255, 0.18)';
 
-        drops[i]++;
-      }
-    };
+			ctx.fillRect(0, 0, logicalSize.current.width, logicalSize.current.height);
 
-    init();
-    draw(0);
+			ctx.fillStyle = isDark ? colorDark : colorLight;
+			ctx.font = `${fontSize}px monospace`;
 
-    const handleResize = () => {
-      init();
-    };
+			for (let i = 0; i < drops.length; i++) {
+				const text = characters[Math.floor(Math.random() * characters.length)];
+				const x = i * fontSize;
+				const y = drops[i] * fontSize;
 
-    window.addEventListener('resize', handleResize);
+				ctx.fillText(text, x, y);
 
-    return () => {
-      cancelAnimationFrame(animationFrameId);
-      window.removeEventListener('resize', handleResize);
-    };
-  }, [isDark, colorLight, colorDark, speed]);
+				if (y > logicalSize.current.height && Math.random() > 0.975) {
+					drops[i] = 0;
+				}
 
-  return (
-    <div ref={containerRef} className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-      <canvas
-        ref={canvasRef}
-        style={{ opacity: 0.4 }} 
-      />
-    </div>
-  );
+				drops[i]++;
+			}
+		};
+
+		init();
+		draw(0);
+
+		const handleResize = () => {
+			init();
+		};
+
+		window.addEventListener('resize', handleResize);
+
+		return () => {
+			cancelAnimationFrame(animationFrameId);
+			window.removeEventListener('resize', handleResize);
+		};
+	}, [isDark, colorLight, colorDark, speed]);
+
+	return (
+		<div ref={containerRef} className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+			<canvas
+				ref={canvasRef}
+				style={{ opacity: 0.4 }}
+			/>
+		</div>
+	);
 }
