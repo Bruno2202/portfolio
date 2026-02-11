@@ -1,8 +1,9 @@
 import { motion } from 'motion/react';
 import { useState } from 'react';
-import { Mail, MapPin, Linkedin, Github, Send, CheckCircle2, Sparkles, LoaderCircle } from 'lucide-react';
+import { Mail, MapPin, Linkedin, Github, Send, CheckCircle2, Sparkles } from 'lucide-react';
 import { EmailService } from '../core/services/EmailService';
 import toast from 'react-hot-toast';
+import { validateEmail } from '../utils/validateEmail';
 
 export function Contact() {
     const [formData, setFormData] = useState({
@@ -11,21 +12,17 @@ export function Contact() {
         message: '',
     });
 
-    const [isSending, setIsSending] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
 
     async function handleSendEmail(e: React.FormEvent) {
         e.preventDefault();
 
         try {
-            setIsSending(true);
-            await EmailService.sendEmail(formData);
             setIsSubmitted(true);
-
+            await EmailService.sendEmail(formData);
         } catch (err: any) {
             toast.error("Erro ao enviar email. Tente novamente mais tarde");
-        } finally {
-            setIsSending(false);
+            setIsSubmitted(false);
         }
     }
 
@@ -156,7 +153,7 @@ export function Contact() {
                                             value={formData.issuerName}
                                             onChange={(e) => setFormData({ ...formData, issuerName: e.target.value })}
                                             required
-                                            className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-2xl text-white focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500/50 outline-none transition-all"
+                                            className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-2xl text-white focus:ring focus:ring-indigo-500/50 focus:border-indigo-500/50 outline-none transition-all"
                                             placeholder="Seu nome"
                                         />
                                     </div>
@@ -168,7 +165,7 @@ export function Contact() {
                                             value={formData.issuerEmail}
                                             onChange={(e) => setFormData({ ...formData, issuerEmail: e.target.value })}
                                             required
-                                            className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-2xl text-white focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500/50 outline-none transition-all"
+                                            className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-2xl text-white focus:ring focus:ring-indigo-500/50 focus:border-indigo-500/50 outline-none transition-all"
                                             placeholder="seu@email.com"
                                         />
                                     </div>
@@ -182,17 +179,26 @@ export function Contact() {
                                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                                         required
                                         rows={5}
-                                        className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-2xl text-white focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500/50 outline-none transition-all resize-none"
+                                        className={`w-full px-5 py-4 bg-white/5 border rounded-2xl text-white outline-none transition-all resize-none 
+                                                ${formData.message.length > 0 && formData.message.length < 10
+                                                ? 'border-red-500/50'
+                                                : 'border-white/10 focus:ring focus:ring-indigo-500/50'}`}
                                         placeholder="No que posso te ajudar?"
                                     />
+                                    {formData.message.length > 0 && formData.message.length < 10 && (
+                                        <span className="text-[10px] text-red-400 ml-2">A mensagem precisa de pelo menos 10 caracteres.</span>
+                                    )}
                                 </div>
 
                                 <button
                                     type="submit"
-                                    disabled={isSubmitted || isSending}
-                                    className={`w-full ${!isSubmitted && 'cursor-pointer'} py-5 rounded-2xl font-bold uppercase tracking-[0.2em] text-sm transition-all flex items-center justify-center gap-3 ${isSubmitted
-                                        ? 'bg-green-500 text-white'
-                                        : 'bg-indigo-600 hover:bg-indigo-500 text-white shadow-[0_0_30px_-5px_rgba(79,70,229,0.5)]'
+                                    disabled={isSubmitted || formData.message.length < 10 || !validateEmail(formData.issuerEmail) || !formData.issuerName}
+                                    className={`w-full py-5 rounded-2xl font-bold uppercase tracking-[0.2em] text-sm transition-all flex items-center justify-center gap-3
+                                        ${isSubmitted
+                                            ? 'bg-green-500 text-white cursor-default'
+                                            : (formData.message.length < 10 || !validateEmail(formData.issuerEmail) || !formData.issuerName)
+                                                ? 'bg-indigo-600/50 text-white/50 cursor-not-allowed'
+                                                : 'bg-indigo-600 hover:bg-indigo-500 text-white cursor-pointer shadow-[0_0_30px_-5px_rgba(79,70,229,0.5)]'
                                         }`}
                                 >
                                     {isSubmitted ? (
@@ -200,14 +206,12 @@ export function Contact() {
                                             <CheckCircle2 size={20} />
                                             Enviado com Sucesso!
                                         </>
-                                    ) : ( !isSubmitted && isSending ? (
-                                        <LoaderCircle size={20} className='animate-spin'/>
                                     ) : (
                                         <>
                                             <Send size={18} />
                                             Enviar Mensagem
                                         </>
-                                    ))}
+                                    )}
                                 </button>
                             </form>
                         </motion.div>
