@@ -73,7 +73,7 @@ export default function About() {
                                 Olá! Tenho 21 anos e atualmente curso o 4º ano de <span className="text-white font-medium italic underline decoration-indigo-500/50">Ciência da Computação na FEMA</span>. Minha jornada no desenvolvimento é movida pela curiosidade de entender como sistemas complexos funcionam por baixo do capô.
                             </p>
                             <p>
-                                Como <span className="text-white font-semibold">Desenvolvedor Full Stack</span>, foco na criação de ecossistemas digitais que não sejam apenas funcionais, mas visualmente impactantes e tecnicamente robustos. Do design de interfaces modernas à arquitetura de bancos de dados escaláveis.
+                                Como <span className="text-white font-semibold">Desenvolvedor Web e Mobile</span>, foco na criação de ecossistemas digitais que não sejam apenas funcionais, mas visualmente impactantes e tecnicamente robustos. Do design de interfaces modernas à arquitetura de bancos de dados escaláveis.
                             </p>
                         </div>
 

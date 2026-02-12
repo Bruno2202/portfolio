@@ -15,8 +15,8 @@ export function Hero() {
             className="flex justify-center items-center min-h-screen flex-col relative"
         >
             <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-600/10 dark:bg-indigo-600/10 rounded-full blur-3xl animate-pulse"></div>
-                <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-600/10 dark:bg-purple-600/10 rounded-full blur-3xl animate-pulse delay-700"></div>
+                <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl animate-pulse"></div>
+                <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl animate-pulse delay-700"></div>
             </div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 pt-8">
@@ -25,13 +25,13 @@ export function Hero() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                 >
-                    <div className="flex flex-col items-center lg:items-start text-center lg:text-left overflow-hidden">
+                    <div className="flex flex-col items-center text-center overflow-hidden">
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, ease: "easeOut" }}
                         >
-                            <span className="text-indigo-500 dark:text-indigo-400 font-mono text-sm md:text-center tracking-[0.2em] uppercase mb-4 block">
+                            <span className="text-indigo-400 font-mono text-sm text-center tracking-[0.2em] uppercase mb-4 block">
                                 Olá, meu nome é
                             </span>
 
@@ -48,12 +48,12 @@ export function Hero() {
                             transition={{ duration: 0.8, delay: 0.4 }}
                             className="flex flex-col items-center lg:items-center"
                         >
-                            <h2 className="text-2xl sm:text-3xl lg:text-5xl text-gray-700 dark:text-gray-200 font-bold mb-6 tracking-tight">
-                                Full Stack Developer
+                            <h2 className="text-2xl sm:text-3xl lg:text-5xl text-gray-200 font-bold mb-6 tracking-tight">
+                                Web & Mobile Developer
                             </h2>
 
-                            <p className="text-center sm:text-lg lg:text-xl text-gray-600 dark:text-gray-400 max-w-[600px] leading-relaxed mb-10">
-                                Do rascunho ao deploy: construindo ideias em <span className="text-gray-900 dark:text-white font-medium">experiências digitais</span> incríveis.
+                            <p className="text-center sm:text-lg lg:text-xl text-gray-400 max-w-[600px] leading-relaxed mb-10">
+                                Do rascunho ao deploy: construindo ideias em <span className="text-white font-medium">experiências digitais</span> incríveis.
                             </p>
                         </motion.div>
                     </div>
@@ -121,7 +121,7 @@ export function Hero() {
 
                 <motion.button
                     onClick={() => scrollToSection('about')}
-                    className="cursor-pointer absolute -bottom-10 left-1/2 transform -translate-x-1/2 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                    className="cursor-pointer absolute -bottom-10 left-1/2 transform -translate-x-1/2 text-gray-400 hover:text-white transition-colors"
                     animate={{ y: [0, 10, 0] }}
                     transition={{ duration: 2, repeat: Infinity }}
                 >

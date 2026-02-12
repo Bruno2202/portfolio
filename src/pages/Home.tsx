@@ -11,8 +11,8 @@ export default function Home() {
     const { theme } = useTheme();
 
     return (
-        <div className="bg-white dark:bg-black transition-colors relative">
-            <AnimatedBackground isDark={theme === 'dark'} />
+        <div className="bg-black transition-colors relative">
+            <AnimatedBackground isDark={theme === 'dark' || theme === 'light'} />
 
             <div className="relative z-10">
                 <Header/>
