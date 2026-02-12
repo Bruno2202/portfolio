@@ -19,10 +19,10 @@ export const projects: ProjectModel[] = [
     },
     {
         title: 'QuickChat ⚡',
-        description: 'Aplicativo de chat instantâneo com mensagens em tempo real, salas privadas e notificações push.',
-        longDescription: 'QuickChat é um aplicativo mobile de mensagens instantâneas desenvolvido em React Native. Oferece chat em tempo real, criação de salas privadas. Construído com foco em performance e experiência do usuário.',
+        description: 'Aplicação de chat instantâneo com mensagens em tempo real e salas privada.',
+        longDescription: 'QuickChat é uma Aplicação de mensagens instantâneas desenvolvido em React. Oferece chat em tempo real, criação de salas privadas. Construído com foco em performance e experiência do usuário.',
         image: "/assets/img/projects/QuickChat.png",
-        tags: ['React Native', 'Node.js', 'WebSocket', 'MongoDB'],
+        tags: ['React', 'Node.js', 'WebSocket', 'MongoDB', 'Firebase'],
         github: 'https://github.com/Bruno2202/quickchat',
         demo: 'https://quickchatapp.netlify.app/',
         featured: true,
@@ -43,7 +43,7 @@ export const projects: ProjectModel[] = [
         image: "/assets/img/projects/Notes.png",
         tags: ['React Native', 'TypeScript', 'Firebase', 'PostgreSQL'],
         github: 'https://github.com/Bruno2202/notes',
-        year: '2023',
+        year: '2024',
         team: 'Projeto Individual',
         highlights: [
             'Editor de texto',
@@ -58,7 +58,7 @@ export const projects: ProjectModel[] = [
         image: "/assets/img/projects/Notes-api.png",
         tags: ['Node.js', 'Fastify', 'PostgreSQL', 'JWT'],
         github: 'https://github.com/Bruno2202/notes-api',
-        year: '2023',
+        year: '2024',
         team: 'Projeto Individual',
         highlights: [
             'API RESTful seguindo padrões REST',
@@ -83,13 +83,13 @@ export const projects: ProjectModel[] = [
     },
     {
         title: 'README.ai',
-        description: 'Gerador inteligente de README.md usando IA para análise de código e criação de documentação profissional.',
+        description: 'Gerador inteligente de README.md usando IA para análise de código e criação de documentação.',
         longDescription: 'README.ai é uma ferramenta inovadora que utiliza a API do Google Gemini para analisar repositórios de código e gerar automaticamente um arquivo README.md completo. A aplicação analisa a estrutura do projeto, dependências, e código fonte para criar documentação detalhada e personalizada.',
         image: "/assets/img/projects/Readme-ai.png",
         tags: ['React', 'Node.js', 'Gemini API', 'TypeScript'],
         github: 'https://github.com/Bruno2202/readme-ai',
         featured: true,
-        year: '2024',
+        year: '2025',
         team: 'Projeto Individual',
         highlights: [
             'Integração com Google Gemini',
