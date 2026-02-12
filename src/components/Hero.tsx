@@ -82,7 +82,7 @@ export function Hero() {
                         </button>
 
                         <a
-                            href="https://drive.google.com/uc?export=download&id=1vO468p7fPoypfcMD1Xbw5QnMPLJR5Pv3"
+                            href={`https://drive.google.com/uc?export=download&id=${import.meta.env.VITE_CV_GDRIVE_ID}`}
                             download
                             className="inline-flex items-center gap-2 px-8 py-3 bg-transparent border border-indigo-500/30 text-indigo-400 rounded-xl font-bold uppercase tracking-widest text-[11px] hover:bg-indigo-500/10 hover:border-indigo-500 transition-all cursor-pointer"
                         >
