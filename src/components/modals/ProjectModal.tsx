@@ -131,9 +131,21 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
 														Live Demo <ExternalLink size={16} />
 													</a>
 												)}
-												<a href={project.github} target="_blank" className="flex items-center justify-between px-6 py-4 bg-white/5 border border-white/10 text-white rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-white/10 transition-all">
-													Source Code <Github size={16} />
-												</a>
+												{project.frontend && (
+													<a href={project.frontend} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between px-6 py-4 bg-white/5 border border-white/10 text-white rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-white/10 transition-all">
+														Frontend Code <Github size={16} />
+													</a>
+												)}
+												{project.backend && (
+													<a href={project.backend} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between px-6 py-4 bg-white/5 border border-white/10 text-white rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-white/10 transition-all">
+														Backend Code <Github size={16} />
+													</a>
+												)}
+												{project.github && !project.frontend && !project.backend && (
+													<a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between px-6 py-4 bg-white/5 border border-white/10 text-white rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-white/10 transition-all">
+														Source Code <Github size={16} />
+													</a>
+												)}
 											</div>
 										</div>
 

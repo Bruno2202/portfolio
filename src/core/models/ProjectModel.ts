@@ -4,7 +4,9 @@ export interface ProjectModel {
     longDescription?: string;
     image?: string;
     tags: string[];
-    github: string;
+    github?: string;
+    frontend?: string;
+    backend?: string;
     demo?: string;
     featured?: boolean;
     year?: string;

@@ -97,4 +97,22 @@ export const projects: ProjectModel[] = [
             'Suporte para múltiplas linguagens',
         ],
     },
+    {
+        title: 'Report Repository',
+        description: 'Plataforma para gestão e centralização de relatórios customizados da VSM Informática.',
+        longDescription: 'Solução desenvolvida e implementada na VSM Informática para organizar o fluxo de entrega de relatórios (SQL/XML) gerados via chamados técnicos. O sistema atua como um hub central, permitindo que documente, categorize e visualize scripts de forma estruturada, eliminando a perda de conhecimento e agilizando o atendimento ao cliente final.',
+        image: "/assets/img/projects/Report-Repository.png",
+        tags: ['React', 'TypeScript', 'Tailwind CSS', 'Internal Tools', 'SQL/XML Management'],
+        frontend: 'https://github.com/Bruno2202/report-repository',
+        backend: 'https://github.com/Bruno2202/report-repository-api',
+        featured: true,
+        year: '2026',
+        team: 'VSM Informática',
+        highlights: [
+            'Em produção na VSM Informática',
+            'Visualizador de scripts com Syntax Highlighting',
+            'Documentação técnica integrada com Markdown',
+            'Redução no tempo de busca de histórico de relatórios'
+        ],
+    },
 ];
