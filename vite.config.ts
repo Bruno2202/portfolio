@@ -16,6 +16,7 @@ export default defineConfig(({ mode }) => {
       host: '0.0.0.0',
       port,
       strictPort: true,
+      allowedHosts: ['bruno.187.33.201.107.sslip.io'],
       proxy: {
         '/api': {
           target: apiDomain,
@@ -28,6 +29,7 @@ export default defineConfig(({ mode }) => {
       host: '0.0.0.0',
       port,
       strictPort: true,
+      allowedHosts: ['bruno.187.33.201.107.sslip.io'],
     },
   }
 });
